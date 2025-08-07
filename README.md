@@ -35,8 +35,8 @@ Parameter  | Command line argument
 ------------- | -------------
 Initial height of the drop centre | ```--initial_height```
 Initial drop speed | ```--initial_speed```
-Flag for use of solid pressure formaulation (1 for true) | ```--use_solid_pressure```
-Flag for use of incompressible formulation (1 for true) | ```--incompressible```
+Boolean flag for use of solid pressure formaulation | ```--use_solid_pressure```
+Boolean flag for use of incompressible formulation | ```--incompressible```
 
 Other parameters, which control the tolerances for adaptive refinement and adaptive timestepping, for instance, cannot be altered using a command line flag, but can be changed within the driver itself.
 
