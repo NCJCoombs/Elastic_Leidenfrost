@@ -40,6 +40,21 @@ Boolean flag for use of incompressible formulation | ```--incompressible```
 
 Other parameters, which control the tolerances for adaptive refinement and adaptive timestepping, for instance, cannot be altered using a command line flag, but can be changed within the driver itself.
 
+## File description
+
+### ```src/meshes```
+```half_circle_sector_domain.h```, ```half_circle_sector_mesh.template.h```, ```half_circle_sector_mesh.template.cc```: Collectively defines the geometry of the semi-circular mesh in the undeformed configuration.
+### ```user_src/axisym_cylindrical_solid```
+```(refineable_)axisym_cylindrical_solid_elements.h```, ```(refineable_)axisym_cylindrical_solid_elements.cc```: Calculates the bulk residual and Jacobian contributions at the element level for non-linear elasticity in cylindrical coordinates with axial symmetry. The formulation used is the principle of virtual displacements; see [here](https://oomph-lib.github.io/oomph-lib/doc/solid/solid_theory/html/index.html) for more information. The refineable versions of these elements account for the presence of hanging nodes introduced by quadtree refinement.
+
+```neo_hookean_constitutive.h```: Implements the strain energy density function, as well as its derivatives with respect to the strain invariants, for a Neo-Hookean material.
+
+```solid_lubrication_elements.h```: Calculates the surface residual and Jacobian contributions at the element level that arise from the lubricating vapour film.
+### ```user_drivers/elastic_leidenfrost```
+```dynamic_EL_gnl_structured.cc```: The driver code for simulating a full isothermal or Leidenfrost impact.
+
+```dynamic_EL_gnl_structured_steady.cc```: The driver code for obtaining stationary floating configurations by first simulating a low velocity impact and applying mass damping.
+
 ## Installation
 
 The code has been written for and successfully compiled with [version 2.0.0](https://github.com/oomph-lib/oomph-lib/releases/tag/v2.0.0) of oomph-lib. The directories for the elements and driver codes mimic the directory structure of oomph-lib. Once these files have been placed in the relevant locations, and the name ```half_circle_sector_mesh``` has been appended to the file ```src/meshes/mesh_names.list```, the user may run ```./autogen.sh``` to generate the makefile for both drivers.
