@@ -73,7 +73,7 @@ Kinetic energy of hydrogel | $E_k$
 Elastic potential energy of hydrogel | $E_e$
 Power due to surface forces | $\mathcal{P}_s$
 Radial position of the 'neck' of the deformed interface | $l$
-Average interface from $r=0$ to $r=l$ | $\langle h\rangle$
+Average interface height from $r=0$ to $r=l$ | $\langle h\rangle$
 
 As an example run, consider the following:
 
